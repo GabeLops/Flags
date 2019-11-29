@@ -9,12 +9,29 @@
 import UIKit
 
 class ViewController: UITableViewController {
+    var flags = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        flags += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
-        // Do any additional setup after loading the view.
     }
+    
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return flags.count
+        
+    }
+   /* override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableView.cellForRow()
+    }*/
+    
+   /* func UIActivityViewController() {
+        
+    }
+    
+    */
+    
 
 
 }
