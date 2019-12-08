@@ -14,6 +14,7 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = "Flags of the World"
         navigationController?.navigationBar.prefersLargeTitles = true
 
@@ -22,13 +23,10 @@ class ViewController: UITableViewController {
         let items = try! fm.contentsOfDirectory(atPath: path)
         
         for item in items {
-            if item.hasSuffix("3x.png") {
+            if item.hasSuffix(".jpg") {
                 flagfromFile.append(item.uppercased())
             }
         }
-        
-        
-        
         
         
     }
@@ -46,6 +44,8 @@ class ViewController: UITableViewController {
         return cell
 
     }
+    
+    
    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailedViewController {
                 vc.selectedImage = flagfromFile[indexPath.row]

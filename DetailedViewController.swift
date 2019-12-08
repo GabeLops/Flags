@@ -9,6 +9,8 @@
 import UIKit
 
 class DetailedViewController: UIViewController {
+    
+    
     @IBOutlet var imageView: UIImageView!
     var selectedImage: String?
     
@@ -17,8 +19,9 @@ class DetailedViewController: UIViewController {
     
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
     
-        let imageToLoad = selectedImage!
-        imageView.image = UIImage(named: imageToLoad)
+          let imageToLoad = selectedImage!
+          imageView.image = UIImage(named: imageToLoad)
+               
         
    
        
