@@ -9,22 +9,38 @@
 import UIKit
 
 class DetailedViewController: UIViewController {
-
-    override func viewDidLoad() {
+    @IBOutlet var imageView: UIImageView!
+    var selectedImage: String?
+    
+   override func viewDidLoad() {
         super.viewDidLoad()
-        //var imageView = UIView()
-        //var imageToLoad = UIImage.self
-    }
     
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
     
-    func showOnTap(){
+        let imageToLoad = selectedImage!
+        imageView.image = UIImage(named: imageToLoad)
         
+   
+       
     }
     
-    
-    func hideOnTap() {
+    @objc func shareTapped() {
         
-    }
+         let share = UIActivityViewController(activityItems: ["Recommend this to friends"], applicationActivities: [])
+                  share.popoverPresentationController?.barButtonItem =
+                  navigationItem.rightBarButtonItem
+                  present(share, animated: true)
+              }
+        
+    
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           navigationController?.hidesBarsOnTap = true
+       }
+    override func viewWillDisappear(_ animated: Bool) {
+           super.viewWillDisappear(animated)
+           navigationController?.hidesBarsOnTap = false
+       }
 
     /*
     // MARK: - Navigation
